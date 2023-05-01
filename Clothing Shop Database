@@ -1,0 +1,41 @@
+- CREATE A CLOTHING STORE DATABASE
+
+CREATE TABLE my_shop (id integer primary key, item text, category text, color text, price integer);
+
+insert into my_shop values 
+(1, "traveller crop", "womens tops", "beige", 25);
+insert into my_shop values 
+(2, "camel hoodie", "womens tops", "brown", 55); 
+insert into my_shop values
+(3, "summer pants", "womens pants", "white", 40);
+insert into my_shop values
+(4, "the hiking shorts", "womens pants", "gray", 30);
+insert into my_shop values
+(5, "lightweight tee", "mens tops", "slate", 25);
+insert into my_shop values
+(6, "board shorts", "mens pants", "blue", 30);
+insert into my_shop values
+(7, "baby tee", "womens tops", "burnt orange", 20);
+insert into my_shop values
+(8, "sienna dress", "womens tops", "seafoam green",60);
+insert into my_shop values
+(9, "workmans coat", "mens tops", "black", 75);
+insert into my_shop values
+(10, "adventure boots", "shoes", "tan", 100);
+insert into my_shop values
+(11, "venice heels", "shoes", "clear", 88);
+insert into my_shop values
+(12, "grandmas slippers", "shoes", "pink", 30);
+insert into my_shop values
+(13, "maui tank", "womens tops", "black", 25);
+insert into my_shop values
+(14, "lounge pants", "mens pants", "gray", 25);
+insert into my_shop values
+(15, "canopy button down", "mens tops", "white", 50);
+
+- DISPLAY THE DATABSE ORDERED BY PRICE
+select * from my_shop
+order by price asc;
+
+- WHAT IS THE AVERAGE PRICE OF ALL ITEMS?
+select avg(price) from my_shop
