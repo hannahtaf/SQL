@@ -1,0 +1,49 @@
+- CREATE A WORKOUT DATABASE
+create table workouts (id integer primary key, type text, location text, minutes integer, calories integer);
+
+insert into workouts values(1, "run", "outdoors", 45, 320);
+insert into workouts values(2, "swimming", "indoors", 30, 250);
+insert into workouts values(3, "rock climbing", "indoors", 90, 300);
+insert into workouts values(4, "pilates", "indoors", 45, 275);
+insert into workouts values(5, "run", "indoors", 20, 210);
+insert into workouts values(6, "weights", "indoors", 75, 450);
+insert into workouts values(7, "pilates", "indoors", 25, 120);
+insert into workouts values(8, "swimming", "outdoors", 60, 550);
+insert into workouts values(9, "rock climbing", "indoors", 60, 190);
+insert into workouts values(10, "hiking", "outdoors", 190, 480);
+insert into workouts values(11, "weights", "indoors", 60, 440);
+insert into workouts values(12, "run", "outdoors", 60, 575);
+insert into workouts values(13, "pilates", "indoors", 45, 250);
+insert into workouts values(14, "swimming", "outdoors", 45, 430);
+insert into workouts values(15, "biking", "outdoors", 90, 600);
+insert into workouts values(16, "weights", "indoors", 50, 410);
+insert into workouts values(17, "biking", "indoors", 30, 340);
+insert into workouts values(18, "rock climbing", "indoors", 90, 320);
+insert into workouts values(19, "swimming", "indoors", 20, 180);
+insert into workouts values(20, "run", "indoors", 40, 320);
+insert into workouts values(21, "weights", "indoors", 90, 530);
+insert into workouts values(22, "hiking", "outdoors", 220, 710);
+insert into workouts values(23, "hiking", "outdoors", 45, 290);
+insert into workouts values(24, "biking", "outdoors", 45, 400);
+insert into workouts values(25, "weights", "indoors", 60, 450);
+insert into workouts values(26, "rock climbing", "indoors", 60, 380);
+insert into workouts values(27, "hiking", "outdoors", 50, 350);
+insert into workouts values(28, "swimming", "outdoors", 20, 190);
+insert into workouts values(29, "weights", "indoors", 60, 440);
+insert into workouts values(30, "run", "indoors", 60, 610);
+insert into workouts values(31, "biking", "outdoors", 90, 675);
+
+- WHAT IS THE AVERAGE TIME SPENT ON EACH TYPE OF EXERCISE?
+select type, avg(minutes) as average_time from workouts group by type;
+
+- TOTAL CALORIES BURNED
+select sum(calories) as total_calories from workouts;
+
+- WHICH TYPE OF EXERCISE BURNED THE MOST CALORIES? HOW LONG DID IT TAKE?
+select type, minutes, calories from workouts order by calories desc;
+
+- NUMBER OF WORKOUTS INDOORS VS OUTDOORS
+select location, count (*) as number_of_workouts from workouts group by location;
+
+- HOW MANY RUNS BURNED OVER 500 CALORIES AND HOW MUCH TIME WAS SPENT ON EACH ONE?
+select "run", minutes, calories from workouts where calories>500 order by calories asc;
