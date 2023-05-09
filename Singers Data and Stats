@@ -1,0 +1,82 @@
+- CREATE DATABASE OF SINGERS
+create table singers(id integer primary key, "name" text, "genre" text,"no1_song" text, "age" text);
+
+insert into singers values (1, "Taylor Swift", "pop", "shake it off", 33);
+insert into singers values (2, "The Weeknd", "pop", "blinding lights", 33);
+insert into singers values (3, "Mac Miller", "hip hop/rap", "self care", 26);
+insert into singers values (4, "Jay-Z", "hip hop/rap", "99 problems", 53);
+insert into singers values (5, "Post Malone", "hip hop/rap", "sunflower", 27);
+insert into singers values (6, "Miley Cyrus", "pop", "flowers", 30);
+insert into singers values (7, "Morgan Wallen", "country", "wasted on you", 29);
+insert into singers values (8, "Giveon", "r&b/soul", "heartbreak anniversary", 28);
+insert into singers values (9, "Selena Gomez", "pop", "love you like a love song", 30);
+insert into singers values (10, "George Strait", "country", "check yes or no", 70);
+insert into singers values (11, "Bruno Mars", "pop", "uptown funk", 30);
+insert into singers values (12, "Beyonce", "r&b/soul", "crazy in love", 41);
+insert into singers values (13, "Rihanna", "pop", "we found love", 35);
+insert into singers values (14, "Harry Styles", "pop", "as it was", 29);
+insert into singers values (15, "Drake", "hip hop/rap", "laugh now cry later", 36);
+insert into singers values (16, "Lizzo", "pop", "about damn time", 35);
+insert into singers values (17, "Ed Sheeran", "pop", "shape of you", 32);
+insert into singers values (18, "Willow", "alternative/indie", "wait a minute", 22);
+insert into singers values (19, "Jack Harlow", "hip hop/rap", "whats poppin", 25);
+insert into singers values (20, "SZA", "r&b/soul", "kill bill", 33);
+insert into singers values (21, "Dua Lipa", "pop", "blow your mind", 27);
+insert into singers values (22, "Charlie Puth", "pop", "marvin gaye", 31);
+insert into singers values (23, "Chris Brown", "r&b/soul", "yo (excuse me miss)", 34);
+insert into singers values (24, "Hozier", "alternative/indie", "take me to church", 33);
+insert into singers values (25, "Carrie Underwood", "country", "before he cheats", 40);
+insert into singers values (26, "Billie Eilish", "pop", "bad guy", 21);
+insert into singers values (27, "Prince", "r&b/soul", "little red corvette", 57);
+insert into singers values (28, "Mary J Blige", "r&b/soul", "be without you", 52);
+insert into singers values (29, "Michael Jackson", "pop", "thriller", 50);
+insert into singers values (30, "Justin Bieber", "pop", "baby", 29);
+insert into singers values (31, "Lorde", "alternative/indie", "royals", 26);
+insert into singers values (32, "Kanye","hip hop/rap", "heartless", 45);
+insert into singers values (33, "Britney Spears", "pop", "oops! i did it again", 41);
+insert into singers values (34, "SIA", "pop", "chandelier", 47);
+insert into singers values (35, "Russ", "hip hop/rap", "what they want", 30);
+insert into singers values (36, "Rod Wave", "hip hop/rap", "rags2riches", 23);
+insert into singers values (37, "6lack", "r&b/soul", "PRBLMS", 30);
+insert into singers values (38, "P!nk", "pop", "just give me a reason", 43);
+insert into singers values (39, "J Cole", "hip hop/rap", "middle child", 38);
+insert into singers values (40, "Eminem", "hip hop/rap", "the real slim shady", 50);
+insert into singers values (41, "Lil Wayne", "hip hop/rap", "a milli", 40);
+insert into singers values (42, "Nicki Minaj", "hip hop/rap", "anaconda", 40);
+insert into singers values (43, "50 Cent", "hip hop/rap", "in da club", 47);
+insert into singers values (44, "Quinn XCII", "pop", "always been you", 31);
+insert into singers values (45, "Future", "hip hop/rap", "mask off", 39);
+insert into singers values (46, "Frank Ocean", "r&b/soul", "thinkin bout you", 35);
+insert into singers values (47, "Adele", "pop", "rolling in the deep", 35);
+insert into singers values (48, "Khalid", "r&b/soul", "better", 25);
+insert into singers values (49, "Ruth B", "hip hop/rap", "lost boy", 27);
+insert into singers values (50, "Zach Bryan", "country", "something in the orange", 27);
+insert into singers values (51, "Darius Rucker", "country", "wagon wheel", 56);
+insert into singers values (52, "Lana Del Rey", "alternative/indie", "summertime sadness", 37);
+
+
+- HOW OLD ARE THE SINGERS?
+select name, age from singers
+order by age asc;
+
+
+- HOW MANY SINGERS ARE IN EACH GENRE?
+select genre, 
+count (*) as artists from singers 
+group by genre order by artists desc;
+
+
+- LIST OF HIP HOP/RAP SINGERS' TOP HITS UNDER THE AGE OF 30
+select name, no1_song from singers 
+where age<30 and genre='hip hop/rap' 
+order by age asc;
+
+
+- AVERAGE AGE OF ALL SINGERS
+select round(avg(age), 0) as average_age from singers;
+
+
+- WHAT PERCENT OF THE SINGERS ARE IN THE R&B/SOUL GENRE?
+select round(count(*) * 100.0 / (select count(*) from singers), 0) as percent, genre from singers where genre = 'r&b/soul';
+
+
